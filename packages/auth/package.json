@@ -1,0 +1,24 @@
+{
+  "name": "@tigris/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@tigris/db": "workspace:*",
+    "@tigris/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@tigris/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

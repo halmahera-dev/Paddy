@@ -3,7 +3,9 @@ import { z } from "zod";
 
 export const env = createEnv({
   clientPrefix: "VITE_",
-  client: {},
-  runtimeEnv: (import.meta as any).env,
+  client: {
+    VITE_PORT: z.number().default(5173),
+  },
+  runtimeEnv: process.env,
   emptyStringAsUndefined: true,
 });

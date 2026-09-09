@@ -1,14 +1,20 @@
-import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
+import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { Toaster } from "@tigris/ui/components/sonner";
+import { TooltipProvider } from "@tigris/ui/components/tooltip";
 
-import Header from "../components/header";
+import { getUser } from "@/functions/get-user";
+
+import { ThemeProvider } from "../components/theme-provider";
 
 import appCss from "../index.css?url";
 
-export interface RouterAppContext {}
+export type Session = Awaited<ReturnType<typeof getUser>>;
+export type RouterAppContext = { session: Session };
 
 export const Route = createRootRouteWithContext<RouterAppContext>()({
+  beforeLoad: async () => ({ session: await getUser() }),
+
   head: () => ({
     meta: [
       {
@@ -35,18 +41,19 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 
 function RootDocument() {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body>
-        <div className="grid h-svh grid-rows-[auto_1fr]">
-          <Header />
-          <Outlet />
-        </div>
-        <Toaster richColors />
-        <TanStackRouterDevtools position="bottom-left" />
-        <Scripts />
+        <ThemeProvider defaultTheme="system" storageKey="theme">
+          <TooltipProvider>
+            <Outlet />
+            <Toaster richColors />
+            <TanStackRouterDevtools position="bottom-left" />
+            <Scripts />
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

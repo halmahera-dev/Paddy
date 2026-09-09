@@ -8,6 +8,8 @@
     "dev": "vite dev"
   },
   "dependencies": {
+    "@hugeicons/core-free-icons": "catalog:",
+    "@hugeicons/react": "catalog:",
     "@tailwindcss/vite": "^4.3.3",
     "@tanstack/react-form": "^1.33.2",
     "@tanstack/react-query": "^5.101.4",

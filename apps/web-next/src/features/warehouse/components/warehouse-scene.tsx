@@ -640,6 +640,7 @@ function CameraRig({
   presetId: string;
 }) {
   const { camera } = useThree();
+  const controls = useThree((state) => state.controls) as OrbitControlsImpl | null;
   const destination = useRef(new Vector3());
   const focus = useRef(new Vector3());
   const transitioning = useRef(false);
@@ -650,16 +651,39 @@ function CameraRig({
     destination.current.set(...preset.position);
     focus.current.set(...preset.target);
 
-    if (!mounted.current) {
-      mounted.current = true;
+    const snap = () => {
       camera.position.copy(destination.current);
       controlsRef.current?.target.copy(focus.current);
       controlsRef.current?.update();
+      transitioning.current = false;
+    };
+
+    if (!mounted.current) {
+      mounted.current = true;
+      snap();
+      return;
+    }
+
+    // §14 reduced motion: jump to the preset instead of flying the camera.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      snap();
       return;
     }
 
     transitioning.current = true;
   }, [camera, controlsRef, presetId]);
+
+  // §3 interruptibility: grabbing OrbitControls cancels the fly-to instead of fighting it.
+  useEffect(() => {
+    if (!controls) {
+      return;
+    }
+    const cancel = () => {
+      transitioning.current = false;
+    };
+    controls.addEventListener("start", cancel);
+    return () => controls.removeEventListener("start", cancel);
+  }, [controls]);
 
   useFrame((_, delta) => {
     if (!transitioning.current) {
@@ -688,27 +712,31 @@ function StatusDot({ status }: { status: WarehouseStatus }) {
 
 function Legend() {
   return (
-    <div className="grid gap-2 text-[10px] text-slate-300/70 uppercase tracking-[0.16em]">
-      <div className="flex items-center gap-3">
-        <span className="text-slate-400/60">Ops</span>
-        {Object.keys(statusStyles).map((status) => (
-          <span className="flex items-center gap-1.5" key={status}>
-            <StatusDot status={status as WarehouseStatus} />
-            {status}
-          </span>
-        ))}
+    <div className="grid gap-2 text-muted-foreground text-xs">
+      <div className="space-y-1">
+        <p>Ops</p>
+        <div className="flex items-center gap-4">
+          {Object.keys(statusStyles).map((status) => (
+            <span className="flex items-center gap-1" key={status}>
+              <StatusDot status={status as WarehouseStatus} />
+              {status}
+            </span>
+          ))}
+        </div>
       </div>
-      <div className="flex items-center gap-3">
-        <span className="text-slate-400/60">Safety</span>
-        {Object.keys(safetyStatusStyles).map((status) => (
-          <span className="flex items-center gap-1.5" key={status}>
-            <span
-              aria-hidden="true"
-              className={`size-2 rounded-full ${safetyStatusStyles[status as WarehouseSafetyStatus].dot}`}
-            />
-            {status}
-          </span>
-        ))}
+      <div className="space-y-1">
+        <p>Safety</p>
+        <div className="flex items-center gap-4">
+          {Object.keys(safetyStatusStyles).map((status) => (
+            <span className="flex items-center gap-1" key={status}>
+              <span
+                aria-hidden="true"
+                className={`size-2 rounded-full ${safetyStatusStyles[status as WarehouseSafetyStatus].dot}`}
+              />
+              {status}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -730,27 +758,15 @@ function SceneOverlay({
   return (
     <div className="pointer-events-none absolute inset-0 flex flex-col justify-between p-4 sm:p-6">
       <div className="flex justify-end">
-        <section className="pointer-events-auto w-full max-w-[17rem] rounded-xl border border-white/10 bg-[#101b1de8] p-3 text-white shadow-2xl backdrop-blur-md">
-          <div className="mb-3 flex items-start justify-between gap-4">
-            <div>
-              <p className="font-mono text-[10px] text-cyan-200/60 uppercase tracking-[0.2em]">
-                Facility shell
-              </p>
-              <h1 className="mt-1 font-medium text-sm tracking-tight">Warehouse digital twin</h1>
-            </div>
-            <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2 py-1 font-mono text-[9px] text-emerald-200 uppercase tracking-[0.16em]">
-              Simulated
-            </span>
-          </div>
-          <div className="border-white/10 border-t pt-3">
-            <p className="mb-2 font-mono text-[9px] text-slate-300/50 uppercase tracking-[0.16em]">
-              Layers
-            </p>
+        <section className="pointer-events-auto w-full max-w-[17rem] rounded-xl border border-white/10 border-t-white/20 bg-[#101b1de8] p-3 text-white shadow-2xl backdrop-blur-md">
+          <div className="border-white/10 pt-2">
+            <p className="mb-2 text-sm">Layers</p>
+
             <div className="grid grid-cols-2 gap-1.5">
               {layerLabels.map((layer) => (
                 <button
                   aria-pressed={layers[layer.id]}
-                  className={`rounded-md border px-2 py-1.5 text-left text-[11px] transition-colors ${
+                  className={`rounded-md border px-2 py-1.5 text-left text-[11px] transition duration-100 active:scale-[0.97] ${
                     layers[layer.id]
                       ? "border-cyan-200/25 bg-cyan-200/10 text-cyan-50"
                       : "border-white/10 bg-white/[0.03] text-slate-400"
@@ -764,14 +780,13 @@ function SceneOverlay({
               ))}
             </div>
           </div>
-          <div className="mt-3 border-white/10 border-t pt-3">
-            <p className="mb-2 font-mono text-[9px] text-slate-300/50 uppercase tracking-[0.16em]">
-              Camera
-            </p>
+          <div className="mt-2 border-white/10 pt-3">
+            <p className="mb-2 text-sm">Camera</p>
+
             <div className="flex flex-wrap gap-1.5">
               {cameraPresets.map((preset) => (
                 <button
-                  className={`rounded-md px-2 py-1 text-[10px] transition-colors ${
+                  className={`rounded-md px-2 py-1.5 text-[10px] transition duration-100 active:scale-[0.97] ${
                     preset.id === presetId
                       ? "bg-white text-slate-900"
                       : "bg-white/10 text-slate-300 hover:bg-white/15"
@@ -785,7 +800,7 @@ function SceneOverlay({
               ))}
             </div>
           </div>
-          <div className="mt-3 border-white/10 border-t pt-3">
+          <div className="mt-2 pt-3">
             <Legend />
           </div>
         </section>
@@ -794,7 +809,8 @@ function SceneOverlay({
       {activeTarget && (
         <section
           aria-live="polite"
-          className="pointer-events-none max-w-xs rounded-xl border border-white/10 bg-[#101b1de8] p-3 text-white shadow-2xl backdrop-blur-md"
+          className="motion-safe:fade-in motion-safe:zoom-in-95 motion-safe:slide-in-from-bottom-1 pointer-events-none max-w-xs rounded-xl border border-white/10 border-t-white/20 bg-[#101b1de8] p-3 text-white shadow-2xl backdrop-blur-md motion-safe:animate-in motion-safe:duration-200"
+          key={activeTarget.id}
           role="tooltip"
         >
           <div className="flex items-center gap-2">

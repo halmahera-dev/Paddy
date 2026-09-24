@@ -12,6 +12,7 @@
 - Prefer regular functions over arrow functions.
 - Keep comments short and limited to intent that clear code cannot express.
 - Keep values in the narrowest scope that uses them. Promote a value to a module constant only when it is shared, configurable, or a stable domain concept.
+- Do not add `Co-authored-by` trailers to commit messages.
 
 ## Talking to Human
 

@@ -50,7 +50,7 @@ function TextShimmerComponent({
         {
           ...style,
           "--spread": `${dynamicSpread}px`,
-          "--base-color": baseColor ?? "color-mix(in oklab, currentColor 55%, transparent)",
+          "--base-color": baseColor ?? "color-mix(in ok2lab, currentColor 55%, transparent)",
           "--base-gradient-color": shimmerColor ?? "currentColor",
           backgroundImage: "var(--bg), linear-gradient(var(--base-color), var(--base-color))",
         } as React.CSSProperties

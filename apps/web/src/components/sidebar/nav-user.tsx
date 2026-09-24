@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ComputerIcon,
   LogoutSquare02Icon,
@@ -9,7 +11,6 @@ import {
   UserAccountIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { useNavigate } from "@tanstack/react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "@tigris/ui/components/avatar";
 import {
   DropdownMenu,
@@ -32,15 +33,15 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@tigris/ui/components/sidebar";
+import { useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 
 import { authClient } from "@/lib/auth-client";
-
-import { useTheme } from "../theme-provider";
 
 export default function NavUser() {
   const { isMobile } = useSidebar();
   const { theme, setTheme } = useTheme();
-  const navigate = useNavigate();
+  const router = useRouter();
   const { data: session } = authClient.useSession();
 
   const name = session?.user.name ?? "Guest";
@@ -57,7 +58,7 @@ export default function NavUser() {
 
   const logout = () =>
     authClient.signOut({
-      fetchOptions: { onSuccess: () => navigate({ to: "/sign-in" }) },
+      fetchOptions: { onSuccess: () => router.push("/sign-in") },
     });
 
   return (
@@ -72,18 +73,15 @@ export default function NavUser() {
               />
             }
           >
-            <Avatar className="h-8 w-8 rounded-lg">
+            <Avatar className="h-8 w-8 rounded-full">
               <AvatarImage src={avatarSrc} alt={name} />
-              <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
+              <AvatarFallback className="rounded-full">{initials}</AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-medium text-foreground">{name}</span>
               <span className="truncate text-muted-foreground text-xs">{email}</span>
             </div>
-            <HugeiconsIcon
-              icon={MoreVerticalCircle01Icon}
-              className="ml-auto size-4"
-            />
+            <HugeiconsIcon icon={MoreVerticalCircle01Icon} className="ml-auto size-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-(--anchor-width) min-w-56"
@@ -98,12 +96,8 @@ export default function NavUser() {
                   <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium text-foreground">
-                    {name}
-                  </span>
-                  <span className="truncate text-muted-foreground text-xs">
-                    {email}
-                  </span>
+                  <span className="truncate font-medium text-foreground">{name}</span>
+                  <span className="truncate text-muted-foreground text-xs">{email}</span>
                 </div>
               </div>
             </div>
@@ -130,10 +124,7 @@ export default function NavUser() {
                 <DropdownMenuSubContent>
                   <DropdownMenuGroup>
                     <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-                    <DropdownMenuRadioGroup
-                      value={theme}
-                      onValueChange={setTheme}
-                    >
+                    <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
                       <DropdownMenuRadioItem value="light">
                         <HugeiconsIcon icon={Sun03Icon} />
                         Light

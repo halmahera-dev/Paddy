@@ -7,9 +7,9 @@ export default async function MainLayout({ children }: { children: React.ReactNo
   await requireSession();
 
   return (
-    <SidebarProvider>
+    <SidebarProvider className="h-svh min-h-0 overflow-hidden">
       <AppSidebar />
-      <SidebarInset className="min-h-0 overflow-y-auto overflow-x-hidden border shadow-none">
+      <SidebarInset className="overflow-y-auto overflow-x-hidden overscroll-contain">
         {children}
       </SidebarInset>
     </SidebarProvider>

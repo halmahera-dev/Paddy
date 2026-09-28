@@ -2,10 +2,10 @@ import { PageHeader } from "@/components/page-header";
 
 export default function DashboardPage() {
   return (
-    <>
+    <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
       <PageHeader title="Blog" />
 
-      <div className="flex-1 px-4">
+      <div className="px-4">
         <article className="typeset mx-auto max-w-2xl py-8">
           <p className="text-muted-foreground text-sm">
             <time dateTime="2026-09-09">September 9, 2026</time> · 4 min read
@@ -67,6 +67,6 @@ export const getPost = cache(async (slug: string) => {
           </p>
         </article>
       </div>
-    </>
+    </div>
   );
 }

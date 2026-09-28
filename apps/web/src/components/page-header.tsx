@@ -13,7 +13,7 @@ function PageHeader({
     <header
       data-slot="page-header"
       className={cn(
-        "sticky top-0 z-10 flex shrink-0 items-center gap-2 border-border/50 border-b bg-background/80 px-4 py-3 backdrop-blur-md supports-backdrop-filter:bg-background/60",
+        "page-header-material sticky top-0 z-20 flex shrink-0 items-center gap-2 px-4 py-3 backdrop-blur-md",
         className,
       )}
       {...props}

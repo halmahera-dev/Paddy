@@ -1,6 +1,6 @@
 "use client";
 
-import { Book01Icon, Factory01Icon, Home01Icon, IceCubesIcon } from "@hugeicons/core-free-icons";
+import { Book01Icon, Home01Icon, IceCubesIcon, MapsGlobal02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Sidebar,
@@ -20,8 +20,8 @@ import NavUser from "./nav-user";
 
 const items = [
   { title: "Overview", to: "/", icon: Home01Icon },
+  { title: "Maps", to: "/maps", icon: MapsGlobal02Icon },
   { title: "Blog", to: "/blog", icon: Book01Icon },
-  { title: "Warehouse", to: "/warehouse", icon: Factory01Icon },
 ] as const;
 
 export function AppSidebar() {

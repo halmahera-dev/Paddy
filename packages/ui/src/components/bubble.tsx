@@ -1,8 +1,8 @@
-import { mergeProps } from "@base-ui/react/merge-props";
-import { useRender } from "@base-ui/react/use-render";
-import { cn } from "@tigris/ui/lib/utils";
-import { cva, type VariantProps } from "class-variance-authority";
-import type * as React from "react";
+import * as React from "react"
+import { mergeProps } from "@base-ui/react/merge-props"
+import { useRender } from "@base-ui/react/use-render"
+import { cva, type VariantProps } from "class-variance-authority"
+import { cn } from "cn"
 
 function BubbleGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -11,11 +11,11 @@ function BubbleGroup({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("flex min-w-0 flex-col gap-2", className)}
       {...props}
     />
-  );
+  )
 }
 
 const bubbleVariants = cva(
-  "group/bubble relative flex w-fit min-w-0 max-w-[80%] flex-col gap-1 data-[variant=ghost]:max-w-full data-[align=end]:self-end group-data-[align=end]/message:self-end",
+  "group/bubble relative flex w-fit max-w-[80%] min-w-0 flex-col gap-1 group-data-[align=end]/message:self-end data-[align=end]:self-end data-[variant=ghost]:max-w-full",
   {
     variants: {
       variant: {
@@ -38,8 +38,8 @@ const bubbleVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  },
-);
+  }
+)
 
 function Bubble({
   variant = "default",
@@ -48,7 +48,7 @@ function Bubble({
   ...props
 }: React.ComponentProps<"div"> &
   VariantProps<typeof bubbleVariants> & {
-    align?: "start" | "end";
+    align?: "start" | "end"
   }) {
   return (
     <div
@@ -58,26 +58,30 @@ function Bubble({
       className={cn(bubbleVariants({ variant }), className)}
       {...props}
     />
-  );
+  )
 }
 
-function BubbleContent({ className, render, ...props }: useRender.ComponentProps<"div">) {
+function BubbleContent({
+  className,
+  render,
+  ...props
+}: useRender.ComponentProps<"div">) {
   return useRender({
     defaultTagName: "div",
     props: mergeProps<"div">(
       {
         className: cn(
-          "wrap-break-word w-fit min-w-0 max-w-full overflow-hidden rounded-3xl border border-transparent px-3.5 py-2.5 text-sm leading-relaxed group-data-[align=end]/bubble:self-end [button,a]:outline-none [button,a]:transition-colors [button,a]:focus-visible:border-ring [button,a]:focus-visible:ring-3 [button,a]:focus-visible:ring-ring/30 [button]:text-left",
-          className,
+          "w-fit max-w-full min-w-0 overflow-hidden rounded-xl border border-transparent px-3 py-2 text-sm leading-relaxed wrap-break-word group-data-[align=end]/bubble:self-end [button]:text-left [button,a]:transition-colors [button,a]:outline-none [button,a]:focus-visible:border-ring [button,a]:focus-visible:ring-3 [button,a]:focus-visible:ring-ring/50",
+          className
         ),
       },
-      props,
+      props
     ),
     render,
     state: {
       slot: "bubble-content",
     },
-  });
+  })
 }
 
 const bubbleReactionsVariants = cva(
@@ -97,8 +101,8 @@ const bubbleReactionsVariants = cva(
       side: "bottom",
       align: "end",
     },
-  },
-);
+  }
+)
 
 function BubbleReactions({
   side = "bottom",
@@ -106,8 +110,8 @@ function BubbleReactions({
   className,
   ...props
 }: React.ComponentProps<"div"> & {
-  align?: "start" | "end";
-  side?: "top" | "bottom";
+  align?: "start" | "end"
+  side?: "top" | "bottom"
 }) {
   return (
     <div
@@ -117,7 +121,7 @@ function BubbleReactions({
       className={cn(bubbleReactionsVariants({ side, align }), className)}
       {...props}
     />
-  );
+  )
 }
 
-export { Bubble, BubbleContent, BubbleGroup, BubbleReactions };
+export { BubbleGroup, Bubble, BubbleContent, BubbleReactions }

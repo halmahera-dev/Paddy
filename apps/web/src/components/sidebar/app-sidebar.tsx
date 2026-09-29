@@ -1,6 +1,11 @@
 "use client";
 
-import { Book01Icon, Home01Icon, Plant02Icon, MapsGlobal02Icon } from "@hugeicons/core-free-icons";
+import {
+  Book01Icon,
+  Home01Icon,
+  MapsGlobal02Icon,
+  Plant02Icon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Sidebar,
@@ -16,15 +21,13 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import NavUser from "./nav-user";
-
 const items = [
   { title: "Overview", to: "/", icon: Home01Icon },
   { title: "Maps", to: "/maps", icon: MapsGlobal02Icon },
   { title: "Blog", to: "/blog", icon: Book01Icon },
 ] as const;
 
-export function AppSidebar() {
+export function AppSidebar({ userMenu }: { userMenu: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
@@ -61,9 +64,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser />
-      </SidebarFooter>
+      <SidebarFooter>{userMenu}</SidebarFooter>
     </Sidebar>
   );
 }

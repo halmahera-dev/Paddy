@@ -33,19 +33,23 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@paddy-field/ui/components/sidebar";
-import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
 
 import { authClient } from "@/lib/auth-client";
 
-export default function NavUser() {
+export default function NavUser({
+  name,
+  email,
+  image,
+}: {
+  name: string;
+  email: string;
+  image?: string | null;
+}) {
   const { isMobile } = useSidebar();
   const { theme, setTheme } = useTheme();
   const router = useRouter();
-  const { data: session } = authClient.useSession();
-
-  const name = session?.user.name ?? "Guest";
-  const email = session?.user.email ?? "";
   const initials = name
     .split(" ")
     .map((p) => p[0])
@@ -53,8 +57,7 @@ export default function NavUser() {
     .slice(0, 2)
     .toUpperCase();
   const avatarSrc =
-    session?.user.image ??
-    `https://api.dicebear.com/9.x/glass/svg?seed=${encodeURIComponent(email || name)}`;
+    image ?? `https://api.dicebear.com/9.x/glass/svg?seed=${encodeURIComponent(email || name)}`;
 
   const logout = () =>
     authClient.signOut({
@@ -72,7 +75,7 @@ export default function NavUser() {
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-medium text-foreground">{name}</span>
-              <span className="truncate text-muted-foreground text-xs">{email}</span>
+              <span className="truncate text-xs text-muted-foreground">{email}</span>
             </div>
             <HugeiconsIcon icon={MoreVerticalCircle01Icon} className="ml-auto size-4" />
           </DropdownMenuTrigger>
@@ -82,7 +85,7 @@ export default function NavUser() {
             align="end"
             sideOffset={4}
           >
-            <div className="font-normal text-muted-foreground text-xs">
+            <div className="text-xs font-normal text-muted-foreground">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8">
                   <AvatarImage src={avatarSrc} alt={name} />
@@ -90,7 +93,7 @@ export default function NavUser() {
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium text-foreground">{name}</span>
-                  <span className="truncate text-muted-foreground text-xs">{email}</span>
+                  <span className="truncate text-xs text-muted-foreground">{email}</span>
                 </div>
               </div>
             </div>

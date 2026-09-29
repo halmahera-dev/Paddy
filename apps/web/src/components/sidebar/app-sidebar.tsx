@@ -1,6 +1,6 @@
 "use client";
 
-import { Book01Icon, Home01Icon, IceCubesIcon, MapsGlobal02Icon } from "@hugeicons/core-free-icons";
+import { Book01Icon, Home01Icon, Plant02Icon, MapsGlobal02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Sidebar,
@@ -36,8 +36,8 @@ export function AppSidebar() {
               className="text-sidebar-accent-foreground"
               render={<Link href="/" />}
             >
-              <HugeiconsIcon icon={IceCubesIcon} />
-              <span className="font-semibold text-base">Paddy Field</span>
+              <HugeiconsIcon icon={Plant02Icon} />
+              <span className="text-base font-semibold">One Field</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

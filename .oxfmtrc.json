@@ -1,4 +1,20 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "tabWidth": 2
+  "tabWidth": 2,
+  "sortTailwindcss": {
+    "stylesheet": "./packages/ui/src/styles/globals.css",
+    "functions": ["clsx", "cn"],
+    "preserveWhitespace": false
+  },
+  "sortImports": {
+    "groups": [
+      "type-import",
+      ["value-builtin", "value-external"],
+      "type-internal",
+      "value-internal",
+      ["type-parent", "type-sibling", "type-index"],
+      ["value-parent", "value-sibling", "value-index"],
+      "unknown"
+    ]
+  }
 }

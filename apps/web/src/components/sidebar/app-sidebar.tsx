@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  Book01Icon,
+  ChessKnightIcon,
   Home01Icon,
   MapsGlobal02Icon,
   Plant02Icon,
@@ -24,7 +24,7 @@ import { usePathname } from "next/navigation";
 const items = [
   { title: "Overview", to: "/", icon: Home01Icon },
   { title: "Maps", to: "/maps", icon: MapsGlobal02Icon },
-  { title: "Blog", to: "/blog", icon: Book01Icon },
+  { title: "Plan", to: "/plan", icon: ChessKnightIcon },
 ] as const;
 
 export function AppSidebar({ userMenu }: { userMenu: React.ReactNode }) {

@@ -67,6 +67,28 @@ import { Button } from "@paddy-field/ui/components/button";
 
 ## Deployment
 
+### Vercel Services
+
+The root `vercel.json` uses [Vercel Services](https://vercel.com/docs/services). Import this repository as one Vercel project and keep the project's Root Directory at the repository root. The `web` service builds the Next.js app in `apps/web` and handles every public path, including `/api/auth/*` and `/_next/*`.
+
+The folders in `packages/` contain shared code, not servers. They are included in the web app's build. There are no internal services or service bindings in the current setup. The web app connects to an external Neon database through `DATABASE_URL`.
+
+Set these project environment variables for each Vercel environment:
+
+- `DATABASE_URL`: The Neon PostgreSQL connection URL.
+- `BETTER_AUTH_SECRET`: A secret with at least 32 characters.
+- `BETTER_AUTH_URL`: The public origin of that environment's web app, including `https://`.
+
+Test the service routing from the repository root with a current Vercel CLI:
+
+```bash
+npx vercel@latest dev
+```
+
+For local testing without a Vercel login, use `npx vercel@latest dev -L`. Keep local environment variables in `apps/web/.env` and set `BETTER_AUTH_URL` to the local origin printed by the command.
+
+If you add another server, add it to `services`. For calls between services, declare a binding on the calling service and read its generated URL in server code at request time. Do not set binding variables yourself or use them during builds or in middleware. Add a public rewrite only if the new service needs public access, and put it before the web catch-all.
+
 ### Docker Compose
 
 - Target: web + server

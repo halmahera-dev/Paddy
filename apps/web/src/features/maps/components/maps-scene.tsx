@@ -215,7 +215,12 @@ export default function MapsScene() {
           onViewportChange={setViewport}
           styles={{ light: "https://tiles.openfreemap.org/styles/bright" }}
         >
-          <MapControls position="bottom-left" showZoom showCompass />
+          <MapControls
+            position="bottom-left"
+            showZoom
+            showCompass
+            className="md:group-has-data-[state=expanded]/sidebar-wrapper:left-(--sidebar-width) md:group-has-data-[state=expanded]/sidebar-wrapper:translate-x-2"
+          />
           <CameraFlyTo
             areaId={area.id}
             center={area.center}

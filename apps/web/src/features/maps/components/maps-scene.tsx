@@ -1,13 +1,13 @@
 "use client";
 
 import {
-  Map,
-  MapControls,
-  MapGeoJSON,
-  MapMarker,
-  MarkerContent,
-  useMap,
-  type MapViewport,
+    Map,
+    MapControls,
+    MapGeoJSON,
+    MapMarker,
+    MarkerContent,
+    useMap,
+    type MapViewport,
 } from "@/components/ui/map";
 import { sampleAreas, type SampleArea } from "@/features/maps/maps-sample-data";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -276,14 +276,6 @@ export default function MapsScene() {
             </MarkerContent>
           </MapMarker>
         </Map>
-        <div className="pointer-events-none mt-12 absolute top-3 left-3 z-10 max-w-64 rounded-lg border border-border/60 bg-background/90 px-3 py-2 shadow-md backdrop-blur-md">
-          <p className="text-xs font-semibold text-foreground/70">
-            NASA source cells, not fields
-          </p>
-          <p className="mt-1 text-xs leading-4 text-muted-foreground">
-            Solid squares are IMERG rain cells. The dashed ring is the SMAP moisture cell.
-          </p>
-        </div>
       </div>
 
       {!panelCollapsed && (

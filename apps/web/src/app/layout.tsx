@@ -1,5 +1,5 @@
-import { Toaster } from "@tigris/ui/components/sonner";
-import { TooltipProvider } from "@tigris/ui/components/tooltip";
+import { Toaster } from "@paddy-field/ui/components/sonner";
+import { TooltipProvider } from "@paddy-field/ui/components/tooltip";
 import type { Metadata } from "next";
 
 import { ThemeProvider } from "@/components/theme-provider";

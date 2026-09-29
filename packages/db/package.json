@@ -1,5 +1,5 @@
 {
-  "name": "@tigris/db",
+  "name": "@paddy-field/db",
   "type": "module",
   "exports": {
     ".": {
@@ -18,13 +18,13 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
-    "@tigris/env": "workspace:*",
+    "@paddy-field/env": "workspace:*",
     "dotenv": "catalog:",
     "drizzle-orm": "^0.45.2",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@tigris/config": "workspace:*",
+    "@paddy-field/config": "workspace:*",
     "drizzle-kit": "^0.31.10",
     "typescript": "catalog:"
   }

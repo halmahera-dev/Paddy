@@ -9,7 +9,7 @@ import {
 } from "@shadcn/react/message-scroller"
 import { cn } from "cn"
 
-import { Button } from "@tigris/ui/components/button"
+import { Button } from "@paddy-field/ui/components/button"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { ArrowDown02Icon } from "@hugeicons/core-free-icons"
 

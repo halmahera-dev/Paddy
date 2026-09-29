@@ -1,5 +1,5 @@
-import { SidebarTrigger } from "@tigris/ui/components/sidebar";
-import { cn } from "@tigris/ui/lib/utils";
+import { SidebarTrigger } from "@paddy-field/ui/components/sidebar";
+import { cn } from "@paddy-field/ui/lib/utils";
 
 function PageHeader({
   className,

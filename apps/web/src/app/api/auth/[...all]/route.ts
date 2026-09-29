@@ -1,4 +1,4 @@
-import { auth } from "@tigris/auth";
+import { auth } from "@paddy-field/auth";
 
 const handler = (request: Request) => auth.handler(request);
 

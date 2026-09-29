@@ -11,7 +11,7 @@ import {
   UserAccountIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Avatar, AvatarFallback, AvatarImage } from "@tigris/ui/components/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@paddy-field/ui/components/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -26,13 +26,13 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@tigris/ui/components/dropdown-menu";
+} from "@paddy-field/ui/components/dropdown-menu";
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@tigris/ui/components/sidebar";
+} from "@paddy-field/ui/components/sidebar";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 

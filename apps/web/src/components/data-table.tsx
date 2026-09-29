@@ -56,16 +56,16 @@ import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { toast } from "sonner"
 import { z } from "zod"
 
-import { useIsMobile } from "@tigris/ui/hooks/use-mobile"
-import { Badge } from "@tigris/ui/components/badge"
-import { Button } from "@tigris/ui/components/button"
+import { useIsMobile } from "@paddy-field/ui/hooks/use-mobile"
+import { Badge } from "@paddy-field/ui/components/badge"
+import { Button } from "@paddy-field/ui/components/button"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@tigris/ui/components/chart"
-import { Checkbox } from "@tigris/ui/components/checkbox"
+} from "@paddy-field/ui/components/chart"
+import { Checkbox } from "@paddy-field/ui/components/checkbox"
 import {
   Drawer,
   DrawerClose,
@@ -75,7 +75,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@tigris/ui/components/drawer"
+} from "@paddy-field/ui/components/drawer"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -83,17 +83,17 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@tigris/ui/components/dropdown-menu"
-import { Input } from "@tigris/ui/components/input"
-import { Label } from "@tigris/ui/components/label"
+} from "@paddy-field/ui/components/dropdown-menu"
+import { Input } from "@paddy-field/ui/components/input"
+import { Label } from "@paddy-field/ui/components/label"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@tigris/ui/components/select"
-import { Separator } from "@tigris/ui/components/separator"
+} from "@paddy-field/ui/components/select"
+import { Separator } from "@paddy-field/ui/components/separator"
 import {
   Table,
   TableBody,
@@ -101,13 +101,13 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@tigris/ui/components/table"
+} from "@paddy-field/ui/components/table"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@tigris/ui/components/tabs"
+} from "@paddy-field/ui/components/tabs"
 
 // New in v9: declare the features this table uses — anything you don't
 // register is tree-shaken out of the bundle.

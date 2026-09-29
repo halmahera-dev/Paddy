@@ -14,7 +14,7 @@ export default async function AuthLayout({ children }: { children: React.ReactNo
             <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <HugeiconsIcon icon={IceCubesIcon} className="size-4" />
             </span>
-            Tigris
+            Paddy Field
           </span>
         </div>
         <div className="flex flex-1 items-center justify-center">

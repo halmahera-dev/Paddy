@@ -6,19 +6,19 @@ import { useRender } from "@base-ui/react/use-render";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "cn";
 
-import { useIsMobile } from "@tigris/ui/hooks/use-mobile";
-import { Button } from "@tigris/ui/components/button";
-import { Input } from "@tigris/ui/components/input";
-import { Separator } from "@tigris/ui/components/separator";
+import { useIsMobile } from "@paddy-field/ui/hooks/use-mobile";
+import { Button } from "@paddy-field/ui/components/button";
+import { Input } from "@paddy-field/ui/components/input";
+import { Separator } from "@paddy-field/ui/components/separator";
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@tigris/ui/components/sheet";
-import { Skeleton } from "@tigris/ui/components/skeleton";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@tigris/ui/components/tooltip";
+} from "@paddy-field/ui/components/sheet";
+import { Skeleton } from "@paddy-field/ui/components/skeleton";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@paddy-field/ui/components/tooltip";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { SidebarLeftIcon } from "@hugeicons/core-free-icons";
 

@@ -1,6 +1,6 @@
 import "server-only";
 
-import { auth } from "@tigris/auth";
+import { auth } from "@paddy-field/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { cache } from "react";

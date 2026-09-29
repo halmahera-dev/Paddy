@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@tigris/ui/lib/utils";
+import { cn } from "@paddy-field/ui/lib/utils";
 import { motion } from "motion/react";
 import React, { type JSX, useMemo } from "react";
 

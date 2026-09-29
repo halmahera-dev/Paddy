@@ -12,11 +12,11 @@
   },
   "iconLibrary": "hugeicons",
   "aliases": {
-    "components": "@tigris/ui/components",
-    "utils": "@tigris/ui/lib/utils",
-    "hooks": "@tigris/ui/hooks",
-    "lib": "@tigris/ui/lib",
-    "ui": "@tigris/ui/components"
+    "components": "@paddy-field/ui/components",
+    "utils": "@paddy-field/ui/lib/utils",
+    "hooks": "@paddy-field/ui/hooks",
+    "lib": "@paddy-field/ui/lib",
+    "ui": "@paddy-field/ui/components"
   },
   "menuColor": "default-translucent",
   "menuAccent": "subtle",

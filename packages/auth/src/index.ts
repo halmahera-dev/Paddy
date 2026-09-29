@@ -1,6 +1,6 @@
-import { createDb } from "@tigris/db";
-import * as schema from "@tigris/db/schema/auth";
-import { env } from "@tigris/env/server";
+import { createDb } from "@paddy-field/db";
+import * as schema from "@paddy-field/db/schema/auth";
+import { env } from "@paddy-field/env/server";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { tanstackStartCookies } from "better-auth/tanstack-start";

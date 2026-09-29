@@ -1,15 +1,15 @@
 "use client";
 
 import { useForm } from "@tanstack/react-form";
-import { Button } from "@tigris/ui/components/button";
+import { Button } from "@paddy-field/ui/components/button";
 import {
   Field,
   FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
-} from "@tigris/ui/components/field";
-import { Input } from "@tigris/ui/components/input";
+} from "@paddy-field/ui/components/field";
+import { Input } from "@paddy-field/ui/components/input";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";

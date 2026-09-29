@@ -12,7 +12,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@tigris/ui/components/sidebar";
+} from "@paddy-field/ui/components/sidebar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -37,7 +37,7 @@ export function AppSidebar() {
               render={<Link href="/" />}
             >
               <HugeiconsIcon icon={IceCubesIcon} />
-              <span className="font-semibold text-base">Tigris</span>
+              <span className="font-semibold text-base">Paddy Field</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

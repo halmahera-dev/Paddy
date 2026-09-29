@@ -1,5 +1,5 @@
 {
-  "name": "tigris",
+  "name": "paddy-field",
   "private": true,
   "workspaces": {
     "packages": [
@@ -30,10 +30,10 @@
     "build": "turbo run build",
     "check-types": "turbo run check-types",
     "dev:web": "turbo run dev -F web --",
-    "db:push": "turbo run db:push -F @tigris/db --",
-    "db:studio": "turbo run db:studio -F @tigris/db --",
-    "db:generate": "turbo run db:generate -F @tigris/db --",
-    "db:migrate": "turbo run db:migrate -F @tigris/db --",
+    "db:push": "turbo run db:push -F @paddy-field/db --",
+    "db:studio": "turbo run db:studio -F @paddy-field/db --",
+    "db:generate": "turbo run db:generate -F @paddy-field/db --",
+    "db:migrate": "turbo run db:migrate -F @paddy-field/db --",
     "docker:build": "docker compose build",
     "docker:up": "docker compose up -d --build",
     "docker:down": "docker compose down",
@@ -42,13 +42,13 @@
     "check": "oxlint && oxfmt --write"
   },
   "dependencies": {
-    "@tigris/env": "workspace:*",
+    "@paddy-field/env": "workspace:*",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@shadcn/lint": "^0.2.0",
-    "@tigris/config": "workspace:*",
+    "@paddy-field/config": "workspace:*",
     "@types/node": "catalog:",
     "oxfmt": "^0.65.0",
     "oxlint": "^1.80.0",

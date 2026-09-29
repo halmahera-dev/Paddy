@@ -29,7 +29,7 @@
       "@/*": [
         "./src/*"
       ],
-      "@tigris/ui/*": [
+      "@paddy-field/ui/*": [
         "../../packages/ui/src/*"
       ]
     }

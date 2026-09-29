@@ -1,4 +1,4 @@
-import { Skeleton } from "@tigris/ui/components/skeleton";
+import { Skeleton } from "@paddy-field/ui/components/skeleton";
 
 import { getSession } from "@/features/user/user-queries";
 

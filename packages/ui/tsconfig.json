@@ -1,11 +1,11 @@
 {
-  "extends": "@tigris/config/tsconfig.base.json",
+  "extends": "@paddy-field/config/tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "types": [],
     "paths": {
-      "@tigris/ui/*": ["./src/*"]
+      "@paddy-field/ui/*": ["./src/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

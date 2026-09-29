@@ -63,7 +63,7 @@ export const getPost = cache(async (slug: string) => {
 
           <hr />
           <p className="text-muted-foreground text-sm">
-            Written for the Tigris dashboard as a typeset demo.
+            Written for the Paddy Field dashboard as a typeset demo.
           </p>
         </article>
       </div>

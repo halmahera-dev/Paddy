@@ -1,4 +1,4 @@
-import { SidebarInset, SidebarProvider } from "@tigris/ui/components/sidebar";
+import { SidebarInset, SidebarProvider } from "@paddy-field/ui/components/sidebar";
 
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
 import { requireSession } from "@/features/user/user-queries";

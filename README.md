@@ -1,4 +1,4 @@
-# tigris
+# paddy-field
 
 This project is a Next.js 16 application in a TypeScript Turborepo.
 
@@ -62,7 +62,7 @@ npx shadcn@latest add accordion dialog popover sheet table -c packages/ui
 Import shared components like this:
 
 ```tsx
-import { Button } from "@tigris/ui/components/button";
+import { Button } from "@paddy-field/ui/components/button";
 ```
 
 ## Deployment
@@ -87,7 +87,7 @@ For more details, see the guide on [Deploying with Docker Compose](https://www.b
 ## Project Structure
 
 ```
-tigris/
+paddy-field/
 ├── apps/
 │   └── web/         # Fullstack application (React + TanStack Start)
 ├── packages/

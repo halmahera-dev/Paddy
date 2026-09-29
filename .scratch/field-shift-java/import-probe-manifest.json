@@ -1,0 +1,360 @@
+{
+  "run_utc": "2026-09-27T16:01:31.825403+00:00",
+  "elapsed_seconds": 31.655,
+  "boundary_release": "BIG BATAS_KECAMATAN_AR_2026 (June 2026 candidate)",
+  "period": [
+    "2026-09-01",
+    "2026-09-07"
+  ],
+  "earthdata_netrc_entry_present": false,
+  "earthdata_token_present": true,
+  "areas": [
+    {
+      "name": "Indramayu",
+      "kdcpum": "32.12.15",
+      "boundary_request": {
+        "url": "https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_KECAMATAN_AR/MapServer/0/query?where=KDCPUM%3D%2732.12.15%27&outFields=KDCPUM%2CNAMOBJ%2CKDPPUM%2CWADMKK&outSR=4326&f=geojson",
+        "status": 200,
+        "seconds": 0.543,
+        "response_bytes": 65907
+      },
+      "boundary": {
+        "name": "Indramayu",
+        "valid": true,
+        "bounds": [
+          108.29457929100005,
+          -6.405030221999937,
+          108.37633092000004,
+          -6.287574362999976
+        ],
+        "centroid": [
+          108.33984982062655,
+          -6.346208053243269
+        ],
+        "sha256": "1aab60d4b224cad1e8139027dee37f5dd3e5dbab4f391448201e54a64dcdf41b"
+      },
+      "power_request": {
+        "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=AG&longitude=108.33985&latitude=-6.34621&start=20260901&end=20260907&time-standard=UTC&format=JSON",
+        "status": 200,
+        "seconds": 1.198,
+        "response_bytes": 1035
+      },
+      "power": {
+        "parameter": {
+          "T2M": {
+            "days": 7,
+            "valid_days": 7,
+            "first_value": 27.32
+          },
+          "PRECTOTCORR": {
+            "days": 7,
+            "valid_days": 7,
+            "first_value": 0.0
+          },
+          "ALLSKY_SFC_SW_DWN": {
+            "days": 7,
+            "valid_days": 0,
+            "first_value": -999.0
+          }
+        },
+        "fill_value": -999.0
+      },
+      "imerg_late_search": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=GPM_3IMERGDL&version=07&bounding_box=108.29457929100005%2C-6.405030221999937%2C108.37633092000004%2C-6.287574362999976&temporal=2026-09-01T00%3A00%3A00Z%2C2026-09-07T23%3A59%3A59Z&page_size=1",
+        "status": 200,
+        "seconds": 2.013,
+        "response_bytes": 4262
+      },
+      "imerg_late": {
+        "cmr_hits": 7,
+        "first_granule": "GPM_3IMERGDL.07:3B-DAY-L.MS.MRG.3IMERG.20260901-S000000-E235959.V07C.nc4",
+        "first_granule_bytes": 32462912,
+        "links": [
+          "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDL.07/2026/09/3B-DAY-L.MS.MRG.3IMERG.20260901-S000000-E235959.V07C.nc4",
+          "https://data.gesdisc.earthdata.nasa.gov/s3credentials",
+          "https://opendap.earthdata.nasa.gov/collections/C2723754859-GES_DISC/granules/GPM_3IMERGDL.07%3A3B-DAY-L.MS.MRG.3IMERG.20260901-S000000-E235959.V07C.nc4",
+          "https://disc.gsfc.nasa.gov/datacollection/GPM_3IMERGDL_07.html"
+        ]
+      },
+      "smap_search": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=SPL4SMGP&version=008&bounding_box=108.29457929100005%2C-6.405030221999937%2C108.37633092000004%2C-6.287574362999976&temporal=2026-09-01T00%3A00%3A00Z%2C2026-09-07T23%3A59%3A59Z&page_size=1",
+        "status": 200,
+        "seconds": 0.362,
+        "response_bytes": 4938
+      },
+      "smap": {
+        "cmr_hits": 57,
+        "first_granule": "SMAP_L4_SM_gph_20260831T223000_Vv8011_001.h5_u9loH5HD",
+        "first_granule_bytes": 150156180,
+        "links": [
+          "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL4SMGP/008/2026/08/31/SMAP_L4_SM_gph_20260831T223000_Vv8011_001.h5",
+          "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL4SMGP/008/2026/08/31/SMAP_L4_SM_gph_20260831T223000_Vv8011_001.qa",
+          "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-public/SMAP/SPL4SMGP/008/2026/08/31/SMAP_L4_SM_gph_20260831T223000_Vv8011_001.h5.iso.xml",
+          "https://data.nsidc.earthdatacloud.nasa.gov/s3credentials"
+        ]
+      },
+      "hls_search": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=HLSS30&version=2.0&bounding_box=108.29457929100005%2C-6.405030221999937%2C108.37633092000004%2C-6.287574362999976&temporal=2026-09-01T00%3A00%3A00Z%2C2026-09-07T23%3A59%3A59Z&page_size=1",
+        "status": 200,
+        "seconds": 0.396,
+        "response_bytes": 14795
+      },
+      "hls": {
+        "cmr_hits": 11,
+        "first_granule": "HLS.S30.T49MBP.2026245T024521.v2.0",
+        "first_granule_bytes": 0,
+        "links": [
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T49MBP.2026245T024521.v2.0/HLS.S30.T49MBP.2026245T024521.v2.0.B10.tif",
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T49MBP.2026245T024521.v2.0/HLS.S30.T49MBP.2026245T024521.v2.0.B01.tif",
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T49MBP.2026245T024521.v2.0/HLS.S30.T49MBP.2026245T024521.v2.0.B12.tif",
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T49MBP.2026245T024521.v2.0/HLS.S30.T49MBP.2026245T024521.v2.0.B04.tif"
+        ]
+      }
+    },
+    {
+      "name": "Sleman",
+      "kdcpum": "34.04.13",
+      "boundary_request": {
+        "url": "https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_KECAMATAN_AR/MapServer/0/query?where=KDCPUM%3D%2734.04.13%27&outFields=KDCPUM%2CNAMOBJ%2CKDPPUM%2CWADMKK&outSR=4326&f=geojson",
+        "status": 200,
+        "seconds": 0.414,
+        "response_bytes": 106136
+      },
+      "boundary": {
+        "name": "Sleman",
+        "valid": true,
+        "bounds": [
+          110.30661221100007,
+          -7.729106727999977,
+          110.38162173200004,
+          -7.662132579999934
+        ],
+        "centroid": [
+          110.34903055334536,
+          -7.6937802196349905
+        ],
+        "sha256": "bc5380f781ea18c41d9539a061de0cfc8d05b8ddc6da54e4f20becd6fc426358"
+      },
+      "power_request": {
+        "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=AG&longitude=110.34903&latitude=-7.69378&start=20260901&end=20260907&time-standard=UTC&format=JSON",
+        "status": 200,
+        "seconds": 0.895,
+        "response_bytes": 1039
+      },
+      "power": {
+        "parameter": {
+          "T2M": {
+            "days": 7,
+            "valid_days": 7,
+            "first_value": 27.23
+          },
+          "PRECTOTCORR": {
+            "days": 7,
+            "valid_days": 7,
+            "first_value": 0.0
+          },
+          "ALLSKY_SFC_SW_DWN": {
+            "days": 7,
+            "valid_days": 0,
+            "first_value": -999.0
+          }
+        },
+        "fill_value": -999.0
+      },
+      "imerg_late_search": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=GPM_3IMERGDL&version=07&bounding_box=110.30661221100007%2C-7.729106727999977%2C110.38162173200004%2C-7.662132579999934&temporal=2026-09-01T00%3A00%3A00Z%2C2026-09-07T23%3A59%3A59Z&page_size=1",
+        "status": 200,
+        "seconds": 0.351,
+        "response_bytes": 4262
+      },
+      "imerg_late": {
+        "cmr_hits": 7,
+        "first_granule": "GPM_3IMERGDL.07:3B-DAY-L.MS.MRG.3IMERG.20260901-S000000-E235959.V07C.nc4",
+        "first_granule_bytes": 32462912,
+        "links": [
+          "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDL.07/2026/09/3B-DAY-L.MS.MRG.3IMERG.20260901-S000000-E235959.V07C.nc4",
+          "https://data.gesdisc.earthdata.nasa.gov/s3credentials",
+          "https://opendap.earthdata.nasa.gov/collections/C2723754859-GES_DISC/granules/GPM_3IMERGDL.07%3A3B-DAY-L.MS.MRG.3IMERG.20260901-S000000-E235959.V07C.nc4",
+          "https://disc.gsfc.nasa.gov/datacollection/GPM_3IMERGDL_07.html"
+        ]
+      },
+      "smap_search": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=SPL4SMGP&version=008&bounding_box=110.30661221100007%2C-7.729106727999977%2C110.38162173200004%2C-7.662132579999934&temporal=2026-09-01T00%3A00%3A00Z%2C2026-09-07T23%3A59%3A59Z&page_size=1",
+        "status": 200,
+        "seconds": 0.338,
+        "response_bytes": 4938
+      },
+      "smap": {
+        "cmr_hits": 57,
+        "first_granule": "SMAP_L4_SM_gph_20260831T223000_Vv8011_001.h5_u9loH5HD",
+        "first_granule_bytes": 150156180,
+        "links": [
+          "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL4SMGP/008/2026/08/31/SMAP_L4_SM_gph_20260831T223000_Vv8011_001.h5",
+          "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL4SMGP/008/2026/08/31/SMAP_L4_SM_gph_20260831T223000_Vv8011_001.qa",
+          "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-public/SMAP/SPL4SMGP/008/2026/08/31/SMAP_L4_SM_gph_20260831T223000_Vv8011_001.h5.iso.xml",
+          "https://data.nsidc.earthdatacloud.nasa.gov/s3credentials"
+        ]
+      },
+      "hls_search": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=HLSS30&version=2.0&bounding_box=110.30661221100007%2C-7.729106727999977%2C110.38162173200004%2C-7.662132579999934&temporal=2026-09-01T00%3A00%3A00Z%2C2026-09-07T23%3A59%3A59Z&page_size=1",
+        "status": 200,
+        "seconds": 0.399,
+        "response_bytes": 14797
+      },
+      "hls": {
+        "cmr_hits": 1,
+        "first_granule": "HLS.S30.T49MDM.2026247T023549.v2.0",
+        "first_granule_bytes": 0,
+        "links": [
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T49MDM.2026247T023549.v2.0/HLS.S30.T49MDM.2026247T023549.v2.0.B03.tif",
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T49MDM.2026247T023549.v2.0/HLS.S30.T49MDM.2026247T023549.v2.0.B01.tif",
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T49MDM.2026247T023549.v2.0/HLS.S30.T49MDM.2026247T023549.v2.0.B09.tif",
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T49MDM.2026247T023549.v2.0/HLS.S30.T49MDM.2026247T023549.v2.0.B11.tif"
+        ]
+      }
+    },
+    {
+      "name": "Banyuwangi",
+      "kdcpum": "35.10.16",
+      "boundary_request": {
+        "url": "https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_KECAMATAN_AR/MapServer/0/query?where=KDCPUM%3D%2735.10.16%27&outFields=KDCPUM%2CNAMOBJ%2CKDPPUM%2CWADMKK&outSR=4326&f=geojson",
+        "status": 200,
+        "seconds": 0.413,
+        "response_bytes": 198354
+      },
+      "boundary": {
+        "name": "Banyuwangi",
+        "valid": true,
+        "bounds": [
+          114.3346934110001,
+          -8.266495732999942,
+          114.39035657200009,
+          -8.184707748999926
+        ],
+        "centroid": [
+          114.36784289240553,
+          -8.22840352923502
+        ],
+        "sha256": "a2ed6f3bede511ae91f801299d9e156d2383cdfc5c6ded50813d2c6e9a36c68d"
+      },
+      "power_request": {
+        "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=AG&longitude=114.36784&latitude=-8.2284&start=20260901&end=20260907&time-standard=UTC&format=JSON",
+        "status": 200,
+        "seconds": 0.853,
+        "response_bytes": 1038
+      },
+      "power": {
+        "parameter": {
+          "T2M": {
+            "days": 7,
+            "valid_days": 7,
+            "first_value": 23.58
+          },
+          "PRECTOTCORR": {
+            "days": 7,
+            "valid_days": 7,
+            "first_value": 0.0
+          },
+          "ALLSKY_SFC_SW_DWN": {
+            "days": 7,
+            "valid_days": 0,
+            "first_value": -999.0
+          }
+        },
+        "fill_value": -999.0
+      },
+      "imerg_late_search": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=GPM_3IMERGDL&version=07&bounding_box=114.3346934110001%2C-8.266495732999942%2C114.39035657200009%2C-8.184707748999926&temporal=2026-09-01T00%3A00%3A00Z%2C2026-09-07T23%3A59%3A59Z&page_size=1",
+        "status": 200,
+        "seconds": 0.335,
+        "response_bytes": 4261
+      },
+      "imerg_late": {
+        "cmr_hits": 7,
+        "first_granule": "GPM_3IMERGDL.07:3B-DAY-L.MS.MRG.3IMERG.20260901-S000000-E235959.V07C.nc4",
+        "first_granule_bytes": 32462912,
+        "links": [
+          "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDL.07/2026/09/3B-DAY-L.MS.MRG.3IMERG.20260901-S000000-E235959.V07C.nc4",
+          "https://data.gesdisc.earthdata.nasa.gov/s3credentials",
+          "https://opendap.earthdata.nasa.gov/collections/C2723754859-GES_DISC/granules/GPM_3IMERGDL.07%3A3B-DAY-L.MS.MRG.3IMERG.20260901-S000000-E235959.V07C.nc4",
+          "https://disc.gsfc.nasa.gov/datacollection/GPM_3IMERGDL_07.html"
+        ]
+      },
+      "smap_search": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=SPL4SMGP&version=008&bounding_box=114.3346934110001%2C-8.266495732999942%2C114.39035657200009%2C-8.184707748999926&temporal=2026-09-01T00%3A00%3A00Z%2C2026-09-07T23%3A59%3A59Z&page_size=1",
+        "status": 200,
+        "seconds": 0.34,
+        "response_bytes": 4937
+      },
+      "smap": {
+        "cmr_hits": 57,
+        "first_granule": "SMAP_L4_SM_gph_20260831T223000_Vv8011_001.h5_u9loH5HD",
+        "first_granule_bytes": 150156180,
+        "links": [
+          "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL4SMGP/008/2026/08/31/SMAP_L4_SM_gph_20260831T223000_Vv8011_001.h5",
+          "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL4SMGP/008/2026/08/31/SMAP_L4_SM_gph_20260831T223000_Vv8011_001.qa",
+          "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-public/SMAP/SPL4SMGP/008/2026/08/31/SMAP_L4_SM_gph_20260831T223000_Vv8011_001.h5.iso.xml",
+          "https://data.nsidc.earthdatacloud.nasa.gov/s3credentials"
+        ]
+      },
+      "hls_search": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=HLSS30&version=2.0&bounding_box=114.3346934110001%2C-8.266495732999942%2C114.39035657200009%2C-8.184707748999926&temporal=2026-09-01T00%3A00%3A00Z%2C2026-09-07T23%3A59%3A59Z&page_size=1",
+        "status": 200,
+        "seconds": 0.366,
+        "response_bytes": 14819
+      },
+      "hls": {
+        "cmr_hits": 7,
+        "first_granule": "HLS.S30.T50MKS.2026244T022529.v2.0",
+        "first_granule_bytes": 0,
+        "links": [
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T50MKS.2026244T022529.v2.0/HLS.S30.T50MKS.2026244T022529.v2.0.VZA.tif",
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T50MKS.2026244T022529.v2.0/HLS.S30.T50MKS.2026244T022529.v2.0.VAA.tif",
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T50MKS.2026244T022529.v2.0/HLS.S30.T50MKS.2026244T022529.v2.0.B08.tif",
+          "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T50MKS.2026244T022529.v2.0/HLS.S30.T50MKS.2026244T022529.v2.0.B01.tif"
+        ]
+      }
+    }
+  ],
+  "file_access": {
+    "imerg_late": {
+      "source_url": "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDL.07/2026/09/3B-DAY-L.MS.MRG.3IMERG.20260901-S000000-E235959.V07C.nc4",
+      "status": 206,
+      "redirect_statuses": [
+        303
+      ],
+      "final_host": "d2b3c3wh8s6en5.cloudfront.net",
+      "content_type": "application/x-troff-ms",
+      "content_range": "bytes 0-3/32462912",
+      "first_bytes_hex": "89484446",
+      "file_header_valid": true,
+      "seconds": 5.432
+    },
+    "smap": {
+      "source_url": "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL4SMGP/008/2026/08/31/SMAP_L4_SM_gph_20260831T223000_Vv8011_001.h5",
+      "status": 206,
+      "redirect_statuses": [
+        303
+      ],
+      "final_host": "d3h5e2j7riftk6.cloudfront.net",
+      "content_type": "application/octet-stream",
+      "content_range": "bytes 0-3/150059341",
+      "first_bytes_hex": "89484446",
+      "file_header_valid": true,
+      "seconds": 9.92
+    },
+    "hls": {
+      "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/HLS.S30.T49MBP.2026245T024521.v2.0/HLS.S30.T49MBP.2026245T024521.v2.0.B04.tif",
+      "status": 206,
+      "redirect_statuses": [
+        303
+      ],
+      "final_host": "d1nklfio7vscoe.cloudfront.net",
+      "content_type": "binary/octet-stream",
+      "content_range": "bytes 0-3/22810062",
+      "first_bytes_hex": "49492a00",
+      "file_header_valid": true,
+      "seconds": 7.027
+    }
+  }
+}

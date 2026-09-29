@@ -1,0 +1,207 @@
+{
+  "period": [
+    "2026-09-01",
+    "2026-09-07"
+  ],
+  "areas": {
+    "Indramayu": {
+      "smap": {
+        "nearest_cell": [
+          901,
+          3088
+        ],
+        "nearest_cell_center": [
+          108.3454360961914,
+          -6.332208633422852
+        ],
+        "cell_centers_inside_polygon": 1,
+        "nearest_surface_m3_m3": 0.08660601824522018,
+        "nearest_rootzone_m3_m3": 0.15670189261436462
+      },
+      "hls_scene": "HLS.S30.T49MBP.2026245T024521.v2.0",
+      "hls_band_download": {
+        "bytes": 22810062,
+        "seconds": 6.194
+      },
+      "hls_quality_download": {
+        "bytes": 1561868,
+        "seconds": 3.438
+      },
+      "hls_read_seconds": 0.142,
+      "hls": {
+        "polygon_pixels": 60575,
+        "valid_pixels": 60575,
+        "clear_pixels": 45062,
+        "band_nodata": -9999.0,
+        "quality_nodata": 255.0
+      },
+      "imerg": {
+        "overlap_cells": 4,
+        "valid_polygon_share": 0.9999718267304897,
+        "area_weighted_rain_mm_day": 0.0,
+        "cells": [
+          {
+            "center": [
+              108.25,
+              -6.349999999999992
+            ],
+            "polygon_share": 0.008991478050463976,
+            "rain_mm_day": 0.0,
+            "sample_count": 48
+          },
+          {
+            "center": [
+              108.3499984741211,
+              -6.45
+            ],
+            "polygon_share": 0.006124668698073198,
+            "rain_mm_day": 0.0,
+            "sample_count": 48
+          },
+          {
+            "center": [
+              108.3499984741211,
+              -6.349999999999992
+            ],
+            "polygon_share": 0.9431964238338071,
+            "rain_mm_day": 0.0,
+            "sample_count": 48
+          },
+          {
+            "center": [
+              108.3499984741211,
+              -6.249999999999997
+            ],
+            "polygon_share": 0.0416592561481454,
+            "rain_mm_day": 0.0,
+            "sample_count": 48
+          }
+        ]
+      }
+    },
+    "Sleman": {
+      "smap": {
+        "nearest_cell": [
+          920,
+          3109
+        ],
+        "nearest_cell_center": [
+          110.30602264404297,
+          -7.68367338180542
+        ],
+        "cell_centers_inside_polygon": 0,
+        "nearest_surface_m3_m3": 0.18069171905517578,
+        "nearest_rootzone_m3_m3": 0.22084984183311462
+      },
+      "hls_scene": "HLS.S30.T49MDM.2026247T023549.v2.0",
+      "hls_band_download": {
+        "bytes": 26927880,
+        "seconds": 4.389
+      },
+      "hls_quality_download": {
+        "bytes": 2573074,
+        "seconds": 2.462
+      },
+      "hls_read_seconds": 0.095,
+      "hls": {
+        "polygon_pixels": 34678,
+        "valid_pixels": 34678,
+        "clear_pixels": 2674,
+        "band_nodata": -9999.0,
+        "quality_nodata": 255.0
+      },
+      "imerg": {
+        "overlap_cells": 2,
+        "valid_polygon_share": 0.9999999999996999,
+        "area_weighted_rain_mm_day": 0.0,
+        "cells": [
+          {
+            "center": [
+              110.3499984741211,
+              -7.749999999999997
+            ],
+            "polygon_share": 0.31429562752521867,
+            "rain_mm_day": 0.0,
+            "sample_count": 48
+          },
+          {
+            "center": [
+              110.3499984741211,
+              -7.649999999999989
+            ],
+            "polygon_share": 0.6857043724744812,
+            "rain_mm_day": 0.0,
+            "sample_count": 48
+          }
+        ]
+      }
+    },
+    "Banyuwangi": {
+      "smap": {
+        "nearest_cell": [
+          928,
+          3153
+        ],
+        "nearest_cell_center": [
+          114.41390228271484,
+          -8.253923416137695
+        ],
+        "cell_centers_inside_polygon": 0,
+        "nearest_surface_m3_m3": 0.17367267608642578,
+        "nearest_rootzone_m3_m3": 0.23781761527061462
+      },
+      "hls_scene": "HLS.S30.T50MKS.2026244T022529.v2.0",
+      "hls_band_download": {
+        "bytes": 22004445,
+        "seconds": 3.864
+      },
+      "hls_quality_download": {
+        "bytes": 869153,
+        "seconds": 2.193
+      },
+      "hls_read_seconds": 0.056,
+      "hls": {
+        "polygon_pixels": 9414,
+        "valid_pixels": 9414,
+        "clear_pixels": 9375,
+        "band_nodata": -9999.0,
+        "quality_nodata": 255.0
+      },
+      "imerg": {
+        "overlap_cells": 2,
+        "valid_polygon_share": 0.999999999999871,
+        "area_weighted_rain_mm_day": 0.0,
+        "cells": [
+          {
+            "center": [
+              114.3499984741211,
+              -8.249999999999996
+            ],
+            "polygon_share": 0.916396317741748,
+            "rain_mm_day": 0.0,
+            "sample_count": 48
+          },
+          {
+            "center": [
+              114.3499984741211,
+              -8.149999999999988
+            ],
+            "polygon_share": 0.08360368225812301,
+            "rain_mm_day": 0.0,
+            "sample_count": 48
+          }
+        ]
+      }
+    }
+  },
+  "smap_download": {
+    "bytes": 150059341,
+    "seconds": 18.667
+  },
+  "smap_read_seconds": 0.877,
+  "imerg_download": {
+    "bytes": 32462912,
+    "seconds": 19.751
+  },
+  "imerg_read_seconds": 0.586
+}

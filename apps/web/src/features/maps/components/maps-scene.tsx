@@ -10,6 +10,8 @@ import {
   type MapViewport,
 } from "@/components/ui/map";
 import { sampleAreas, type SampleArea } from "@/features/maps/maps-sample-data";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { PanelRightCloseIcon, PanelRightOpenIcon } from "@hugeicons/core-free-icons";
 import type { FeatureCollection, Polygon } from "geojson";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
@@ -53,6 +55,7 @@ export default function MapsScene() {
   );
   const [mode, setMode] = useState<Mode>("screening");
   const [showSources, setShowSources] = useState(false);
+  const [panelCollapsed, setPanelCollapsed] = useState(false);
   const [markedIds, setMarkedIds] = useState<string[]>([]);
   const [firstCrop, setFirstCrop] = useState("Rice");
   const [secondCrop, setSecondCrop] = useState("Maize");
@@ -193,6 +196,19 @@ export default function MapsScene() {
 
   return (
     <div className="relative flex h-full min-h-0 flex-col bg-background text-foreground">
+      <button
+        type="button"
+        onClick={() => setPanelCollapsed((value) => !value)}
+        aria-label={panelCollapsed ? "Show panel" : "Hide panel"}
+        aria-pressed={!panelCollapsed}
+        className="absolute top-4 right-4 z-30 flex size-9 items-center justify-center rounded-md border border-border bg-background/90 text-foreground shadow-md backdrop-blur-md transition-transform duration-100 hover:bg-muted active:scale-95 focus-visible:outline-2 focus-visible:outline-ring"
+      >
+        <HugeiconsIcon
+          icon={panelCollapsed ? PanelRightOpenIcon : PanelRightCloseIcon}
+          size={18}
+          strokeWidth={2}
+        />
+      </button>
       <div className="relative min-h-80 flex-1">
         <Map
           viewport={viewport}
@@ -260,7 +276,7 @@ export default function MapsScene() {
             </MarkerContent>
           </MapMarker>
         </Map>
-        <div className="pointer-events-none absolute top-3 left-3 z-10 max-w-64 rounded-lg border border-border/60 bg-background/90 px-3 py-2 shadow-md backdrop-blur-md">
+        <div className="pointer-events-none mt-12 absolute top-3 left-3 z-10 max-w-64 rounded-lg border border-border/60 bg-background/90 px-3 py-2 shadow-md backdrop-blur-md">
           <p className="text-xs font-semibold text-foreground/70">
             NASA source cells, not fields
           </p>
@@ -270,7 +286,8 @@ export default function MapsScene() {
         </div>
       </div>
 
-      <section className="relative z-10 max-h-96 shrink-0 overflow-y-auto border-t border-border bg-background/85 shadow-xl backdrop-blur-lg supports-[backdrop-filter]:backdrop-saturate-150 lg:absolute lg:top-4 lg:right-4 lg:bottom-4 lg:max-h-none lg:w-96 lg:rounded-xl lg:border">
+      {!panelCollapsed && (
+      <section className="relative z-10 mt-12 max-h-96 shrink-0 overflow-y-auto border-t border-border bg-background/85 shadow-xl backdrop-blur-lg supports-[backdrop-filter]:backdrop-saturate-150 lg:absolute lg:top-4 lg:right-4 lg:bottom-4 lg:max-h-none lg:w-96 lg:rounded-xl lg:border">
         <div className="px-5 pt-5 pb-3">
           <div className="flex items-baseline justify-between gap-3">
             <span className="text-xs font-semibold text-foreground/60">Sample area</span>
@@ -445,6 +462,7 @@ export default function MapsScene() {
           </div>
         </div>
       </section>
+      )}
     </div>
   );
 }

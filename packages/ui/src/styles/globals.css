@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/geist-mono";
+@import "@fontsource-variable/plus-jakarta-sans";
 @import "./typeset.css";
 @source "../../../apps/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
@@ -20,13 +21,13 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: oklch(0.985 0 0);
   --foreground: oklch(0.252 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.252 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.252 0 0);
-  --primary: oklch(0.658 0.231 17.074);
+  --primary: oklch(59.6% 0.145 163.225);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.961 0 0);
   --secondary-foreground: oklch(0.252 0 0);
@@ -43,12 +44,12 @@
   --chart-3: oklch(0.586 0.253 17.585);
   --chart-4: oklch(0.514 0.222 16.935);
   --chart-5: oklch(0.455 0.188 13.697);
-  --radius: 14px;
+  --radius: 0.625rem;
   --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0.252 0 0);
-  --sidebar-primary: oklch(0.658 0.231 17.074);
+  --sidebar-primary: oklch(59.6% 0.145 163.225);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.961 0 0);
+  --sidebar-accent: oklch(0.87 0 0 / 0.4);
   --sidebar-accent-foreground: oklch(0.252 0 0);
   --sidebar-border: oklch(0.898 0 0);
   --sidebar-ring: oklch(0.252 0 0);
@@ -61,7 +62,7 @@
   --card-foreground: oklch(0.961 0 0);
   --popover: oklch(0.252 0 0);
   --popover-foreground: oklch(0.961 0 0);
-  --primary: oklch(0.658 0.231 17.074);
+  --primary: oklch(59.6% 0.145 163.225);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.293 0 0);
   --secondary-foreground: oklch(0.961 0 0);
@@ -80,9 +81,9 @@
   --chart-5: oklch(0.455 0.188 13.697);
   --sidebar: oklch(0.185 0 0);
   --sidebar-foreground: oklch(0.961 0 0);
-  --sidebar-primary: oklch(0.658 0.231 17.074);
+  --sidebar-primary: oklch(59.6% 0.145 163.225);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.293 0 0);
+  --sidebar-accent: oklch(0.37 0 0 / 0.4);
   --sidebar-accent-foreground: oklch(0.961 0 0);
   --sidebar-border: oklch(1 0 0 / 12%);
   --sidebar-ring: oklch(0.961 0 0);
@@ -90,7 +91,7 @@
 
 @theme inline {
   --font-sans: "Geist Variable", sans-serif;
-  --font-heading: "Geist Variable", sans-serif;
+  --font-heading: "Plus Jakarta Sans Variable", sans-serif;
   --font-mono: "Geist Mono Variable", monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -139,7 +140,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply font-sans bg-background text-foreground;
+    @apply bg-background font-sans text-foreground;
   }
   html {
     @apply font-sans;

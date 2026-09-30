@@ -8,6 +8,8 @@ const config: NextConfig = {
     "@paddy-field/db",
   ],
   images: {
+    // Serve local assets directly because the Vercel service image endpoint returns 404.
+    unoptimized: true,
     qualities: [75, 90],
   },
   devIndicators: {

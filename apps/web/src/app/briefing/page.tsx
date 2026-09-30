@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { ArrowRight01Icon, Plant02Icon } from "@hugeicons/core-free-icons";
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Badge } from "@paddy-field/ui/components/badge";
 import { Button } from "@paddy-field/ui/components/button";
@@ -23,6 +23,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+import { AppLogo } from "@/components/app-logo";
 import { ModeToggle } from "@/components/mode-toggle";
 import { RiceSeasonChart } from "@/features/briefing/components/rice-season-chart";
 import { RotationExplorer } from "@/features/briefing/components/rotation-explorer";
@@ -82,9 +83,7 @@ export default function BriefingPage() {
     <div data-page="briefing" className="min-h-svh overflow-x-clip bg-background text-foreground">
       <header className="briefing-glass fixed inset-x-3 top-3 z-30 mx-auto flex max-w-5xl items-center gap-2 rounded-full py-1.5 pr-1.5 pl-4 sm:inset-x-6">
         <Link href="/" className="flex items-center gap-2 font-heading text-sm font-bold">
-          <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
-            <HugeiconsIcon icon={Plant02Icon} className="size-4" />
-          </span>
+          <AppLogo />
           One Field
         </Link>
         <nav className="ml-auto hidden md:flex">

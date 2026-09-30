@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  ChessKnightIcon,
-  Home01Icon,
-  MapsGlobal02Icon,
-  Plant02Icon,
-} from "@hugeicons/core-free-icons";
+import { ChessKnightIcon, Home01Icon, MapsGlobal02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Sidebar,
@@ -20,6 +15,8 @@ import {
 } from "@paddy-field/ui/components/sidebar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import { AppLogo } from "@/components/app-logo";
 
 const items = [
   { title: "Overview", to: "/", icon: Home01Icon },
@@ -39,7 +36,7 @@ export function AppSidebar({ userMenu }: { userMenu: React.ReactNode }) {
               className="text-sidebar-accent-foreground"
               render={<Link href="/" />}
             >
-              <HugeiconsIcon icon={Plant02Icon} />
+              <AppLogo />
               <span className="text-base font-semibold">One Field</span>
             </SidebarMenuButton>
           </SidebarMenuItem>

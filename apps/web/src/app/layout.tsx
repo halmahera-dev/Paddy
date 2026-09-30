@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     template: "%s | One Field",
   },
   description: siteDescription,
+  icons: {
+    icon: { url: "/logo.png", type: "image/png", sizes: "512x512" },
+  },
   robots: {
     index: false,
     follow: true,

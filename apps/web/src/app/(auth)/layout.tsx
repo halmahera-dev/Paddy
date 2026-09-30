@@ -1,6 +1,4 @@
-import { Plant02Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
-
+import { AppLogo } from "@/components/app-logo";
 import { ModeToggle } from "@/components/mode-toggle";
 import { redirectIfAuthenticated } from "@/features/user/user-queries";
 
@@ -13,9 +11,7 @@ export default async function AuthLayout({ children }: { children: React.ReactNo
         <div className="flex w-full justify-center">
           <header className="flex w-full max-w-sm justify-center gap-2">
             <span className="flex items-center gap-2 font-medium">
-              <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                <HugeiconsIcon icon={Plant02Icon} className="size-4" />
-              </span>
+              <AppLogo />
               One Field
             </span>
             <div className="ml-auto">

@@ -201,3 +201,23 @@
     backdrop-filter: none;
   }
 }
+
+@keyframes rain-fall {
+  from {
+    transform: translateY(-1.5rem);
+  }
+  to {
+    transform: translateY(11rem);
+  }
+}
+
+.rain-drop {
+  animation: rain-fall linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rain-drop {
+    animation: none;
+    top: var(--drop-top);
+  }
+}

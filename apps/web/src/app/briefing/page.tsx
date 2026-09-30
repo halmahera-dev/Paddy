@@ -661,7 +661,7 @@ function Team() {
     { name: "Nadya", title: "Product & Business Lead", photo: nadyaPhoto },
     { name: "Ariq", title: "Product Design Engineer", photo: ariqPhoto },
     { name: "Zaki", title: "Agronomy & Research Lead", photo: zakiPhoto },
-    { name: "Akmal", title: "Lead Engineer", photo: akmalPhoto },
+    { name: "Akmal", title: "AI & Software Engineer", photo: akmalPhoto },
     { name: "Falif", title: "Earth Data Engineer", photo: falifPhoto },
   ];
 

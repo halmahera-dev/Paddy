@@ -8,6 +8,14 @@ import { siteDescription, siteUrl } from "@/lib/seo";
 
 import "./globals.css";
 
+const faviconByEnvironment: Record<string, string> = {
+  production: "/logo.png",
+  staging: "/favicon-stg.png",
+};
+
+// VERCEL_ENV is unset locally and in Docker; Preview and Development also fall back to dev.
+const favicon = faviconByEnvironment[process.env.VERCEL_ENV ?? ""] ?? "/favicon-dev.png";
+
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   applicationName: "One Field",
@@ -17,7 +25,7 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   icons: {
-    icon: { url: "/logo.png", type: "image/png", sizes: "512x512" },
+    icon: { url: favicon, type: "image/png", sizes: "512x512" },
   },
   robots: {
     index: false,

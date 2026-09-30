@@ -27,6 +27,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { RiceSeasonChart } from "@/features/briefing/components/rice-season-chart";
 import { RotationExplorer } from "@/features/briefing/components/rotation-explorer";
 import { TeamCarousel } from "@/features/briefing/components/team-carousel";
+import { siteDescription } from "@/lib/seo";
 
 import heroImage from "../../../public/daisies.webp";
 import akmalPhoto from "../../../public/members/akmal.webp";
@@ -36,9 +37,44 @@ import nadyaPhoto from "../../../public/members/nadya.webp";
 import zakiPhoto from "../../../public/members/zaki.webp";
 import spaceAppsLogo from "../../../public/nasa_space_apps_challenge.png";
 
+const title = "Crop Rotation for Java Farmers";
+const shareImage = {
+  url: "/daisies.webp",
+  width: heroImage.width,
+  height: heroImage.height,
+  alt: "Impressionist oil painting of cream daisies in a field under a teal sky",
+};
+
 export const metadata: Metadata = {
-  title: "One Field",
-  description: "Crop rotation choices for Java farmers, with NASA data.",
+  title,
+  description: siteDescription,
+  alternates: {
+    canonical: "/briefing",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "One Field",
+    title: `${title} | One Field`,
+    description: siteDescription,
+    url: "/briefing",
+    images: [shareImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${title} | One Field`,
+    description: siteDescription,
+    images: [shareImage],
+  },
 };
 
 export default function BriefingPage() {

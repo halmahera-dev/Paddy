@@ -75,9 +75,9 @@ export function TeamCarousel({ members }: { members: Member[] }) {
                   aria-hidden
                   className="briefing-caption-blur absolute inset-x-0 bottom-0 h-44"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/60 to-transparent p-5 pt-16">
+                <div className="absolute inset-x-0 bottom-0 h-25 bg-linear-to-t from-black/60 to-transparent p-4">
                   <p className="font-heading text-2xl font-semibold text-white">{member.name}</p>
-                  <p className="text-sm text-white/80">{member.title}</p>
+                  <p className="text-sm text-ellipsis text-white/80">{member.title}</p>
                 </div>
               </button>
             </li>

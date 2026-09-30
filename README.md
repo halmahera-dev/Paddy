@@ -77,7 +77,9 @@ Set these project environment variables for each Vercel environment:
 
 - `DATABASE_URL`: The Neon PostgreSQL connection URL.
 - `BETTER_AUTH_SECRET`: A secret with at least 32 characters.
-- `BETTER_AUTH_URL`: The public origin of that environment's web app, including `https://`.
+- `BETTER_AUTH_URL`: The public origin of that environment's web app, including `https://`. One Field also uses this origin for canonical links, share previews, and the sitemap.
+
+The public `/briefing` page is included in `/sitemap.xml`. Other pages use `noindex` metadata. Keep them accessible to crawlers so the `noindex` tag can be read; `/robots.txt` blocks only `/api/` and points to the sitemap.
 
 Test the service routing from the repository root with a current Vercel CLI:
 

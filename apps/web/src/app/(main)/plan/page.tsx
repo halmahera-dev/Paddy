@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
+
 import { PageHeader } from "@/components/page-header";
+
+export const metadata: Metadata = {
+  title: "Project Plan",
+  description: "The One Field project plan for crop rotation choices with NASA data in Java.",
+};
 
 export default function PlanPage() {
   return (

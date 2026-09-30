@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
+
 import { SidebarTrigger } from "@paddy-field/ui/components/sidebar";
 
 import MapsScene from "@/features/maps/components/maps-scene";
+
+export const metadata: Metadata = {
+  title: "Field Map",
+  description: "Explore crop rotation plans and NASA rain data for your area with One Field.",
+};
 
 export default function MapsPage() {
   return (

@@ -1,12 +1,18 @@
+import type { Metadata } from "next";
+
+import { Skeleton } from "@paddy-field/ui/components/skeleton";
 import { Suspense } from "react";
 
 import { ChartAreaInteractive } from "@/components/chart-area-interactive";
 import { DataTable } from "@/components/data-table";
 import { PageHeader } from "@/components/page-header";
 import { SectionCards } from "@/components/section-cards";
-import { Skeleton } from "@paddy-field/ui/components/skeleton";
 
 import data from "./dashboard-data.json";
+
+export const metadata: Metadata = {
+  title: "Home",
+};
 
 export default function HomePage() {
   return (

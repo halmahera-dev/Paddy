@@ -1,11 +1,18 @@
+import type { Metadata } from "next";
+
 import { SignUpForm } from "@/features/user/components/sign-up-form";
+
+export const metadata: Metadata = {
+  title: "Create an Account",
+  description: "Create your One Field account.",
+};
 
 export default function SignUpPage() {
   return (
     <div className="space-y-8">
       <div className="flex flex-col gap-1">
-        <h1 className="font-bold text-2xl">Create your account</h1>
-        <p className="text-balance text-muted-foreground text-sm">
+        <h1 className="text-2xl font-bold">Create your account</h1>
+        <p className="text-sm text-balance text-muted-foreground">
           Enter your details below to create your account
         </p>
       </div>

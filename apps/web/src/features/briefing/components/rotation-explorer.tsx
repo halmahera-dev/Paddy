@@ -164,14 +164,14 @@ export function RotationExplorer() {
   }
 
   return (
-    <Card>
+    <Card className="min-w-0">
       <CardHeader>
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div className="grid gap-1.5">
+        <div className="flex flex-col gap-5">
+          <div className="grid min-w-0 gap-1.5">
             <CardTitle>How much of the water need does rain cover?</CardTitle>
             <CardDescription>Example area. Rain only. Tap a plan to see why.</CardDescription>
           </div>
-          <div className="flex flex-wrap gap-4">
+          <div className="grid min-w-0 gap-4 sm:grid-cols-2">
             <ChoiceTabs
               label="Your soil"
               options={soilOptions}
@@ -189,8 +189,16 @@ export function RotationExplorer() {
       </CardHeader>
 
       <CardContent>
-        <div className="[&_g:focus:not(:focus-visible)]:outline-none">
-          <ChartContainer config={chartConfig} className="aspect-auto h-72 w-full">
+        <p className="mb-3 text-xs text-muted-foreground md:hidden">
+          Scroll to compare all four plans.
+        </p>
+        <div
+          role="region"
+          aria-label="Rain cover for four crop plans"
+          tabIndex={0}
+          className="overflow-x-auto rounded-lg pb-2 focus-visible:outline-2 focus-visible:outline-ring [&_g:focus:not(:focus-visible)]:outline-none"
+        >
+          <ChartContainer config={chartConfig} className="aspect-auto h-80 w-full min-w-160">
             <BarChart
               accessibilityLayer
               data={chartData}
@@ -309,13 +317,17 @@ function ChoiceTabs<Value extends string>({
   onChange: (value: Value) => void;
 }) {
   return (
-    <div className="grid gap-1.5">
+    <div className="grid min-w-0 gap-1.5">
       <p className="text-xs text-muted-foreground">{label}</p>
       <Tabs value={value} onValueChange={(nextValue) => onChange(nextValue as Value)}>
-        <TabsList aria-label={label}>
+        <TabsList aria-label={label} className="w-full min-w-0 group-data-horizontal/tabs:h-14">
           {options.map(function renderOption(option) {
             return (
-              <TabsTrigger key={option.value} value={option.value}>
+              <TabsTrigger
+                key={option.value}
+                value={option.value}
+                className="min-w-0 whitespace-normal"
+              >
                 {option.label}
               </TabsTrigger>
             );

@@ -9,10 +9,11 @@ type Member = { name: string; title: string; photo: StaticImageData };
 export function TeamCarousel({ members }: { members: Member[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPointerInside, setIsPointerInside] = useState(false);
+  const [isFocusInside, setIsFocusInside] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const listRef = useRef<HTMLUListElement>(null);
 
-  const isPaused = isPointerInside || !isInView;
+  const isPaused = isPointerInside || isFocusInside || !isInView;
 
   useEffect(function pauseWhenOffscreen() {
     const list = listRef.current;
@@ -31,7 +32,12 @@ export function TeamCarousel({ members }: { members: Member[] }) {
       const item = list?.children[activeIndex];
       if (!list || !item || list.scrollWidth <= list.clientWidth) return;
       const offset = item.getBoundingClientRect().left - list.getBoundingClientRect().left;
-      list.scrollBy({ left: offset - 24, behavior: "smooth" });
+      list.scrollBy({
+        left: offset - parseFloat(getComputedStyle(list).paddingLeft),
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+      });
     },
     [activeIndex],
   );
@@ -41,26 +47,32 @@ export function TeamCarousel({ members }: { members: Member[] }) {
   }
 
   return (
-    <div className="mx-auto max-w-5xl">
+    <div
+      className="mx-auto max-w-5xl"
+      onFocusCapture={() => setIsFocusInside(true)}
+      onBlurCapture={function resumeWhenFocusLeaves(event) {
+        if (!event.currentTarget.contains(event.relatedTarget)) setIsFocusInside(false);
+      }}
+    >
       <ul
         ref={listRef}
         onPointerEnter={() => setIsPointerInside(true)}
         onPointerLeave={() => setIsPointerInside(false)}
-        className="flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-4 sm:h-112 sm:overflow-visible sm:pb-0"
+        className="flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-4 sm:scroll-px-6 sm:px-6 lg:h-112 lg:overflow-visible lg:pb-0"
       >
         {members.map(function renderMember(member, index) {
           return (
             <li
               key={member.name}
               data-active={index === activeIndex}
-              className="group relative h-80 w-52 shrink-0 snap-start overflow-hidden rounded-4xl bg-muted transition-all duration-700 ease-out motion-reduce:transition-none sm:h-auto sm:w-auto sm:shrink sm:grow sm:data-[active=true]:grow-3"
+              className="group relative h-88 w-72 max-w-3/4 shrink-0 snap-start overflow-hidden rounded-4xl bg-muted transition-all duration-700 ease-out motion-reduce:transition-none lg:h-auto lg:w-auto lg:max-w-none lg:min-w-0 lg:shrink lg:grow lg:data-[active=true]:grow-3"
             >
               <button
                 type="button"
-                tabIndex={-1}
+                aria-pressed={index === activeIndex}
                 aria-label={`Show ${member.name}`}
                 onClick={() => setActiveIndex(index)}
-                className="absolute inset-0 cursor-pointer text-left"
+                className="absolute inset-0 cursor-pointer text-left focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-ring"
               >
                 <Image
                   src={member.photo}
@@ -68,16 +80,16 @@ export function TeamCarousel({ members }: { members: Member[] }) {
                   fill
                   placeholder="blur"
                   quality={90}
-                  sizes="(min-width: 640px) 40vw, 20rem"
+                  sizes="(min-width: 1024px) 24rem, (min-width: 400px) 18rem, 72vw"
                   className="object-cover object-top transition-transform duration-700 ease-out group-data-[active=true]:scale-105 motion-reduce:transition-none"
                 />
                 <div
                   aria-hidden
                   className="briefing-caption-blur absolute inset-x-0 bottom-0 h-44"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-25 bg-linear-to-t from-black/60 to-transparent p-4">
+                <div className="absolute inset-x-0 bottom-0 min-h-25 bg-linear-to-t from-black/60 to-transparent p-4">
                   <p className="font-heading text-2xl font-semibold text-white">{member.name}</p>
-                  <p className="text-sm text-ellipsis text-white/80">{member.title}</p>
+                  <p className="text-sm text-white/80">{member.title}</p>
                 </div>
               </button>
             </li>
@@ -100,7 +112,7 @@ export function TeamCarousel({ members }: { members: Member[] }) {
               aria-label={`Show ${member.name}`}
               aria-pressed={isActive}
               onClick={() => setActiveIndex(index)}
-              className="p-1.5"
+              className="flex min-h-11 min-w-11 items-center justify-center p-1.5"
             >
               <span
                 className={cn(

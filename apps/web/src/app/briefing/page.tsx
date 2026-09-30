@@ -81,7 +81,7 @@ export const metadata: Metadata = {
 export default function BriefingPage() {
   return (
     <div data-page="briefing" className="min-h-svh overflow-x-clip bg-background text-foreground">
-      <header className="briefing-glass fixed inset-x-3 top-3 z-30 mx-auto flex max-w-5xl items-center gap-2 rounded-full py-1.5 pr-1.5 pl-4 sm:inset-x-6">
+      <header className="briefing-glass fixed inset-x-3 top-3 z-30 mx-auto flex max-w-5xl items-center gap-1 rounded-full py-1.5 pr-1.5 pl-4 sm:inset-x-6">
         <Link href="/" className="flex items-center gap-2 font-heading text-sm font-bold">
           <AppLogo />
           One Field
@@ -98,8 +98,7 @@ export default function BriefingPage() {
           </Button>
         </nav>
         <Button
-          variant="neutral"
-          size="sm"
+          variant="outline"
           className="mr-1 ml-auto"
           nativeButton={false}
           render={<Link href="/plan" />}

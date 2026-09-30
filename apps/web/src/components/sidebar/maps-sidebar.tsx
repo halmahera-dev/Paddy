@@ -1,6 +1,6 @@
 "use client";
 
-import { ChessKnightIcon, Home01Icon, MapsGlobal02Icon } from "@hugeicons/core-free-icons";
+import { ArrowLeft02Icon, MapsGlobal02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Sidebar,
@@ -18,11 +18,7 @@ import { usePathname } from "next/navigation";
 
 import { AppLogo } from "@/components/app-logo";
 
-const items = [
-  { title: "Overview", to: "/", icon: Home01Icon },
-  { title: "Maps", to: "/maps", icon: MapsGlobal02Icon },
-  { title: "Plan", to: "/plan", icon: ChessKnightIcon },
-] as const;
+const items = [{ title: "World Map", to: "/maps", icon: MapsGlobal02Icon }] as const;
 
 export function MapsSidebar({ userMenu }: { userMenu: React.ReactNode }) {
   const pathname = usePathname();
@@ -46,6 +42,12 @@ export function MapsSidebar({ userMenu }: { userMenu: React.ReactNode }) {
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton render={<Link href="/" />}>
+                  <HugeiconsIcon icon={ArrowLeft02Icon} />
+                  Maps
+                </SidebarMenuButton>
+              </SidebarMenuItem>
               {items.map((item) => (
                 <SidebarMenuItem key={item.to}>
                   <SidebarMenuButton

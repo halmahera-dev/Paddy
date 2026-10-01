@@ -34,7 +34,7 @@
 
 @layer base {
   .page-header-material {
-    background: color-mix(in oklch, var(--background) 72%, transparent);
+    background: color-mix(in oklch, var(--header) 72%, transparent);
     box-shadow: 0 1px 0 color-mix(in oklch, var(--foreground) 5%, transparent);
     backdrop-filter: var(--tw-backdrop-blur) saturate(165%);
     -webkit-backdrop-filter: var(--tw-backdrop-blur) saturate(165%);

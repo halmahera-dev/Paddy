@@ -1,5 +1,4 @@
 import { auth } from "@paddy-field/auth";
+import { toNextJsHandler } from "better-auth/next-js";
 
-const handler = (request: Request) => auth.handler(request);
-
-export { handler as GET, handler as POST };
+export const { GET, POST } = toNextJsHandler(auth);

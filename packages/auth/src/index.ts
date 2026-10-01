@@ -3,7 +3,7 @@ import * as schema from "@paddy-field/db/schema/auth";
 import { env } from "@paddy-field/env/server";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { tanstackStartCookies } from "better-auth/tanstack-start";
+import { nextCookies } from "better-auth/next-js";
 
 export function createAuth() {
   const db = createDb();
@@ -23,7 +23,7 @@ export function createAuth() {
     },
     secret: env.BETTER_AUTH_SECRET,
     baseURL: env.BETTER_AUTH_URL,
-    plugins: [tanstackStartCookies()],
+    plugins: [nextCookies()],
   });
 }
 

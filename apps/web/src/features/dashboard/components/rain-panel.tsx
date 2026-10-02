@@ -33,12 +33,14 @@ export function RainPanel({ area }: { area: Area }) {
             <span
               key={index}
               className="rain-drop absolute top-0 h-4 w-px rounded-full bg-muted-foreground/60"
-              style={{
-                left: `${(index * 37) % 100}%`,
-                animationDelay: `-${((index * 13) % 10) / 10}s`,
-                animationDuration: `${0.6 + (index % 5) * 0.1}s`,
-                "--drop-top": `${(index * 29) % 85}%`,
-              } as React.CSSProperties}
+              style={
+                {
+                  left: `${(index * 37) % 100}%`,
+                  animationDelay: `-${((index * 13) % 10) / 10}s`,
+                  animationDuration: `${0.6 + (index % 5) * 0.1}s`,
+                  "--drop-top": `${(index * 29) % 85}%`,
+                } as React.CSSProperties
+              }
             />
           );
         })}
@@ -53,7 +55,12 @@ export function RainPanel({ area }: { area: Area }) {
 
 function CrackedGround() {
   return (
-    <svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden className="absolute inset-x-0 bottom-0 h-16 w-full">
+    <svg
+      viewBox="0 0 200 60"
+      preserveAspectRatio="none"
+      aria-hidden
+      className="absolute inset-x-0 bottom-0 h-16 w-full"
+    >
       <path
         d="M0 40 L30 32 L50 44 L80 30 L100 46 L130 34 L160 48 L200 36 M50 44 L58 60 M100 46 L92 60 M160 48 L170 60 M80 30 L84 18"
         fill="none"

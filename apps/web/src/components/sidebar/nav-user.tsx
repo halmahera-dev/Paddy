@@ -35,6 +35,7 @@ import {
 } from "@paddy-field/ui/components/sidebar";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
+import React from "react";
 
 import { authClient } from "@/lib/auth-client";
 
@@ -63,6 +64,18 @@ export default function NavUser({
     authClient.signOut({
       fetchOptions: { onSuccess: () => router.push("/sign-in") },
     });
+
+  React.useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "D") {
+        event.preventDefault();
+        setTheme(theme === "dark" ? "light" : "dark");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [setTheme]);
 
   return (
     <SidebarMenu>

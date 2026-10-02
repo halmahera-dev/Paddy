@@ -324,7 +324,7 @@ function Success() {
   return (
     <section
       id="success"
-      className="via-deep-teal scroll-mt-24 bg-linear-to-br from-primary to-primary py-14 text-primary-foreground sm:py-20 lg:py-24"
+      className="to-deep-teal scroll-mt-24 bg-linear-to-br from-primary py-14 text-primary-foreground sm:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="briefing-reveal max-w-2xl">

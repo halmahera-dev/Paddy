@@ -66,6 +66,21 @@
       -webkit-backdrop-filter: none;
     }
   }
+  .overview-art {
+    background-image:
+      linear-gradient(
+        to bottom,
+        color-mix(in oklch, var(--background) 35%, transparent),
+        var(--background) 30rem
+      ),
+      url("/daisies.webp");
+    background-size:
+      100% 100%,
+      100% auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+  }
   .maplibregl-popup-content {
     @apply rounded-none! bg-transparent! p-0! shadow-none!;
   }
